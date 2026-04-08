@@ -1,0 +1,200 @@
+/* ── SHARED PAGES CSS ── */
+
+/* Short hero variant */
+.page-hero-short { min-height: 36vh; }
+
+/* ── QUICK CONTACT BAR ── */
+.quick-contact-bar {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 20px 0;
+}
+.quick-contact-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 0; color: var(--text);
+  transition: color .22s;
+}
+.quick-contact-item:hover { color: var(--accent); }
+.quick-contact-item i {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(232,160,32,.12); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.qc-label { display: block; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-muted); }
+.qc-value { display: block; font-size: .88rem; font-weight: 600; }
+
+/* ── RESERVATION FORM ── */
+.res-form-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+}
+.res-form-title { font-size: 1.8rem; margin-bottom: .3rem; }
+.res-form-sub { color: var(--text-muted); font-size: .9rem; margin-bottom: 1.8rem; }
+
+.res-note {
+  background: rgba(232,160,32,.08);
+  border: 1px solid rgba(232,160,32,.2);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  font-size: .82rem; color: var(--text-muted);
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.res-note i { color: var(--accent); flex-shrink: 0; margin-top: 2px; }
+.res-note a { color: var(--accent); font-weight: 600; }
+
+.res-disclaimer {
+  font-size: .75rem; color: var(--text-muted);
+  text-align: center; margin-top: .75rem; margin-bottom: 0;
+}
+
+/* ── RES SIDEBAR ── */
+.res-alt-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.res-alt-icon {
+  width: 48px; height: 48px; border-radius: var(--radius-sm);
+  background: rgba(232,160,32,.12); color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.res-alt-card h5 { font-size: 1rem; font-weight: 700; margin-bottom: .3rem; }
+.res-alt-card p { font-size: .83rem; color: var(--text-muted); margin-bottom: .75rem; }
+
+.res-info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+}
+.res-info-title { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; }
+.res-info-title i { color: var(--accent); }
+
+.res-perks {
+  display: flex; flex-direction: column; gap: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+}
+.res-perk-item {
+  display: flex; align-items: center; gap: 12px;
+  font-size: .88rem; color: var(--text-muted);
+}
+.res-perk-item i { color: var(--accent); width: 18px; flex-shrink: 0; }
+
+/* ── CONTACT MAP ── */
+.contact-map-card { border-radius: var(--radius-md); overflow: hidden; }
+
+/* ── SOCIAL FOLLOW ── */
+.social-follow-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: .5rem 1rem; border-radius: var(--radius-sm);
+  font-size: .82rem; font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--text); transition: var(--transition);
+}
+.social-follow-btn:hover { transform: translateY(-2px); }
+.social-follow-btn.facebook:hover { background: #1877f2; border-color: #1877f2; color: #fff; }
+.social-follow-btn.instagram:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); border-color: transparent; color: #fff; }
+.social-follow-btn.google:hover { background: #ea4335; border-color: #ea4335; color: #fff; }
+
+/* ── ORDER DIRECT ── */
+.order-direct-hero {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  margin-bottom: 3rem;
+  border-left: 4px solid var(--accent);
+}
+.direct-perks { display: flex; flex-direction: column; gap: 8px; }
+.direct-perk {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .88rem; color: var(--text-muted);
+}
+.direct-perk i { color: var(--green, #2d8a4e); width: 16px; }
+
+.order-direct-card {
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  text-align: center;
+}
+.odc-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(232,160,32,.15); color: var(--accent);
+  font-size: 1.6rem;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+}
+.order-direct-card h3 { font-size: 1.4rem; margin-bottom: .3rem; }
+.order-direct-card p { color: var(--text-muted); font-size: .88rem; margin-bottom: 1.2rem; }
+
+/* ── OR DIVIDER ── */
+.or-divider {
+  text-align: center; position: relative; margin: 2.5rem 0;
+  color: var(--text-muted); font-size: .85rem;
+}
+.or-divider::before, .or-divider::after {
+  content: ''; position: absolute; top: 50%;
+  width: calc(50% - 80px); height: 1px; background: var(--border);
+}
+.or-divider::before { left: 0; }
+.or-divider::after  { right: 0; }
+.or-divider span { background: var(--bg); padding: 0 16px; }
+
+/* ── PLATFORM CARDS ── */
+.platform-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  height: 100%;
+  transition: var(--transition);
+}
+.platform-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(232,160,32,.3); }
+.platform-logo {
+  height: 56px; display: flex; align-items: center;
+  margin-bottom: 1rem; background: #fff;
+  border-radius: var(--radius-sm); padding: 10px 16px;
+}
+.platform-logo img { max-height: 36px; object-fit: contain; }
+.platform-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: .4rem; }
+.platform-card p { font-size: .83rem; color: var(--text-muted); margin-bottom: 1rem; }
+.platform-features { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.platform-features li {
+  display: flex; align-items: center; gap: 8px;
+  font-size: .8rem; color: var(--text-muted);
+}
+.platform-features i { color: var(--accent); width: 14px; }
+
+/* ── PICKUP INFO BANNER ── */
+.pickup-info-banner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  margin-top: 3rem;
+}
+.pickup-info-banner h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; }
+.text-accent { color: var(--accent); }
+.pickup-steps {
+  padding-left: 1.2rem;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.pickup-steps li { font-size: .88rem; color: var(--text-muted); line-height: 1.5; }
+.pickup-steps a { color: var(--accent); font-weight: 600; }
+
+@media (max-width: 767px) {
+  .res-form-wrap { padding: 24px 20px; }
+  .order-direct-hero { padding: 24px 20px; }
+  .pickup-info-banner { padding: 24px 20px; }
+}

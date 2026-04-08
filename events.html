@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Admiral Pub & Grill</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="events.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="Image/Logo.svg" alt="Admiral Pub &amp; Grill" class="nav-logo">
+    </a>
+    <div class="d-flex align-items-center gap-2 order-lg-last">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
+      <a href="https://tables.toasttab.com/restaurants/ed7b45c6-f962-40f9-bf91-a1d036956011/reserve?partySize=2&dateTime=2026-04-08T08:30:00.000-07:00" target="_blank" rel="noopener" class="btn btn-accent d-none d-lg-inline-flex align-items-center gap-2"><i class="fa-solid fa-calendar-check"></i> Reserve</a>
+      <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="menu.html" role="button" data-bs-toggle="dropdown">Menu</a>
+          <ul class="dropdown-menu nav-dropdown">
+            <li><a class="dropdown-item nav-dropdown-item" href="menu.html#food"><i class="fa-solid fa-utensils me-2"></i>Food Menu</a></li>
+            <li><a class="dropdown-item nav-dropdown-item" href="menu.html#drinks"><i class="fa-solid fa-beer-mug-empty me-2"></i>Drink Menu</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link active-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="reservation.html">Reservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-highlight" href="order-pickup.html">Order Pickup</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="section-eyebrow light"><i class="fa-solid fa-calendar-star"></i> Live &amp; Upcoming</div>
+    <h1 class="page-hero-title">Events at the Admiral</h1>
+    <p class="page-hero-sub">Live music every weekend, trivia nights, NHL playoffs &amp; Canadian celebrations. There's always something on.</p>
+    <div class="hero-badges" style="margin-top:1.5rem">
+      <div class="hero-badge"><i class="fa-solid fa-guitar"></i> Live Bands Weekly</div>
+      <div class="hero-badge"><i class="fa-solid fa-hockey-puck"></i> Every Canucks Game</div>
+      <div class="hero-badge"><i class="fa-solid fa-brain"></i> Trivia Nights</div>
+      <div class="hero-badge"><i class="fa-solid fa-star"></i> Special Events</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS MAIN -->
+<section class="section-pad">
+  <div class="container">
+
+    <!-- Month Tabs -->
+    <div class="month-tabs-wrap reveal">
+      <ul class="month-tabs" id="monthTabs" role="tablist">
+        <!-- Dynamically populated by JavaScript -->
+      </ul>
+    </div>
+
+    <!-- Filter Pills -->
+    <div class="filter-pills reveal">
+      <button class="filter-pill active" data-filter="all">All Events</button>
+      <button class="filter-pill" data-filter="live-music"><i class="fa-solid fa-guitar"></i> Live Music</button>
+      <button class="filter-pill" data-filter="sports"><i class="fa-solid fa-hockey-puck"></i> Sports</button>
+      <button class="filter-pill" data-filter="trivia"><i class="fa-solid fa-brain"></i> Trivia</button>
+      <button class="filter-pill" data-filter="special"><i class="fa-solid fa-star"></i> Special</button>
+    </div>
+
+    <!-- Events Grid -->
+    <div class="row g-4" id="eventsGrid"></div>
+    <div class="no-events d-none" id="noEvents">
+      <i class="fa-solid fa-calendar-xmark"></i>
+      <p>No events match your filter for this month.</p>
+    </div>
+
+    <!-- Calendar Note -->
+    <div class="events-note reveal">
+      <i class="fa-solid fa-circle-info"></i>
+      Events are subject to change. Follow us on <a href="https://www.instagram.com/admiral_pub_grill/" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.facebook.com/admiralpubgrill" target="_blank" rel="noopener">Facebook</a> for the latest announcements.
+      For private bookings call <button class="copy-phone-btn" data-phone="+16042987158" aria-label="Copy phone number">+1 604-298-7158</button>.
+    </div>
+  </div>
+</section>
+
+<!-- RECURRING EVENTS BANNER -->
+<section class="recurring-section section-alt">
+  <div class="container">
+    <div class="section-header text-center reveal">
+      <div class="section-eyebrow"><i class="fa-solid fa-rotate"></i> Every Week</div>
+      <h2 class="section-title">Recurring Events</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="recurring-card">
+          <div class="rec-icon live-music"><i class="fa-solid fa-guitar"></i></div>
+          <h4>Live Music</h4>
+          <div class="rec-day">Every Friday &amp; Saturday</div>
+          <p>Cover bands, folk, blues &amp; rock. No cover charge — just great music.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="recurring-card">
+          <div class="rec-icon sports"><i class="fa-solid fa-hockey-puck"></i></div>
+          <h4>Canucks Game Nights</h4>
+          <div class="rec-day">Every Home &amp; Away Game</div>
+          <p>All screens on. Wings specials during every playoff game. Go Canucks! 🍁</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="recurring-card">
+          <div class="rec-icon trivia"><i class="fa-solid fa-brain"></i></div>
+          <h4>Trivia Night</h4>
+          <div class="rec-day">Every Sunday &amp; Thursday</div>
+          <p>Teams of 2–6. $20 bar tab for 1st place. Register at the door by 6:45 PM.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="recurring-card">
+          <div class="rec-icon special"><i class="fa-solid fa-beer-mug-empty"></i></div>
+          <h4>Wing &amp; Beer Sunday</h4>
+          <div class="rec-day">Every Sunday All Day</div>
+          <p>$1 wings &amp; $5 domestic pints. The best way to cap off the weekend.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP MODAL -->
+<div class="modal fade" id="rsvpModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content rsvp-modal-content">
+      <button type="button" class="btn-close modal-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body p-0">
+        <div class="rsvp-modal-container">
+          <!-- Left Side: Event Details -->
+          <div class="rsvp-modal-left">
+            <div class="rsvp-modal-eyebrow" id="rsvpEventType">Live Music</div>
+            <h2 class="rsvp-modal-title" id="rsvpModalLabel">Event Title</h2>
+            <div class="rsvp-modal-meta" id="rsvpModalMeta"></div>
+            <div class="rsvp-modal-desc" id="rsvpModalDesc"></div>
+            <div class="calendar-buttons-wrap">
+              <a id="googleCalendarBtn" href="#" target="_blank" rel="noopener" class="btn btn-accent btn-lg">
+                <i class="fa-brands fa-google me-2"></i>Google Calendar
+              </a>
+              <a id="outlookCalendarBtn" href="#" target="_blank" rel="noopener" class="btn btn-accent btn-lg">
+                <i class="fa-brands fa-microsoft me-2"></i>Microsoft Outlook
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Side: Event Image -->
+          <div class="rsvp-modal-right">
+            <img id="rsvpModalImage" src="" alt="Event" class="rsvp-modal-image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand"><img src="Image/Logo.svg" alt="Admiral Pub &amp; Grill" class="footer-logo"></div>
+        <p class="footer-tagline">Your neighbourhood pub since day one.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/admiralpubgrill" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/admiral_pub_grill/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.google.com/search?q=admiral+Pub+&sca_esv=0e50515861f97790&biw=3430&bih=1325&sxsrf=ANbL-n6sBgkhBV9_eePleBMMmIzNEXRKeQ%3A1775581933295&ei=7TrVacbPEbT00PEPnuCfiQU&ved=0ahUKEwiG-pyTntyTAxU0OjQIHR7wJ1EQ4dUDCBE&uact=5&oq=admiral+Pub+&gs_lp=Egxnd3Mtd2l6LXNlcnAiDGFkbWlyYWwgUHViIDIEECMYJzILEAAYgAQYigUYkQIyERAuGK8BGMcBGJECGIAEGIoFMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjtBlDEAViLBXABeAGQAQCYAYQBoAG8A6oBAzIuMrgBA8gBAPgBAZgCBaAC0APCAgoQABhHGNYEGLADwgIGEAAYFhgewgILEAAYgAQYigUYhgPCAgUQABjvBcICCBAAGIAEGKIEwgIJEAAYFhgeGMkDwgILEAAYgAQYigUYkgPCAgsQLhiABBjHARivAZgDAIgGAZAGCJIHAzEuNKAHliCyBwMwLjS4B80DwgcFMC4xLjTIBw-ACAE&sclient=gws-wiz-serp#lrd=0x548670cf294373ff:0x242b014b0460706e,1,,,," target="_blank" rel="noopener" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2"><h6 class="footer-heading">Navigate</h6>
+        <ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="events.html">Events</a></li><li><a href="reservation.html">Reservation</a></li><li><a href="contact.html">Contact</a></li><li><a href="order-pickup.html">Order Pickup</a></li></ul>
+      </div>
+      <div class="col-6 col-lg-2"><h6 class="footer-heading">Hours</h6>
+        <ul class="footer-links small-text"><li>Lunch: 11:30 AM – 2:30 PM</li><li>Dinner: 2:30 PM – Close</li><li>Fri–Sat Late: 10 PM+</li><li class="accent-text">Happy Hr: 3–6 PM Daily</li></ul>
+      </div>
+      <div class="col-lg-4"><h6 class="footer-heading">Find Us</h6>
+        <p class="footer-address"><i class="fa-solid fa-location-dot me-1"></i> 4125 E Hastings St, Burnaby, BC<br><i class="fa-solid fa-phone me-1"></i> +1 604-298-7158</p>
+        <a href="reservation.html" class="btn btn-accent mt-3"><i class="fa-solid fa-calendar-check me-2"></i>Make a Reservation</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Admiral Pub &amp; Grill. All rights reserved.</span><span class="design-credit">Design By ❤️ <a href="https://cloudtax.ca" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">CloudTax.ca</a></span></div>
+  </div>
+</footer>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="toastMsg" class="toast align-items-center border-0" role="alert">
+    <div class="d-flex"><div class="toast-body" id="toastBody"></div><button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="shared.js"></script>
+<script src="sheets-loader.js"></script>
+<script src="events.js"></script>
+</body>
+</html>

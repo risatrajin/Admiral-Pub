@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Read(//usr/local/lib/node_modules/npm/bin/**)",
+      "Bash(/usr/local/bin/node -e \"require\\(''http''\\)\")",
+      "WebFetch(domain:admiralpub.ca)",
+      "Bash(curl -s http://localhost:3000/index.html)",
+      "Bash(curl -s http://localhost:3000/style.css)",
+      "Bash(kill 85421)",
+      "mcp__pencil__get_editor_state",
+      "Bash(grep -l \"Reserve\" *.html)",
+      "Bash(grep -E \"\\\\.js$|\\\\.html$\")"
+    ]
+  }
+}

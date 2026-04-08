@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation — Admiral Pub & Grill</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="Image/Logo.svg" alt="Admiral Pub &amp; Grill" class="nav-logo">
+    </a>
+    <div class="d-flex align-items-center gap-2 order-lg-last">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"><i class="fa-solid fa-sun" id="themeIcon"></i></button>
+      <a href="https://tables.toasttab.com/restaurants/ed7b45c6-f962-40f9-bf91-a1d036956011/reserve?partySize=2&dateTime=2026-04-08T08:30:00.000-07:00" target="_blank" rel="noopener" class="btn btn-accent d-none d-lg-inline-flex align-items-center gap-2"><i class="fa-solid fa-calendar-check"></i> Reserve</a>
+      <button class="navbar-toggler ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="menu.html" role="button" data-bs-toggle="dropdown">Menu</a>
+          <ul class="dropdown-menu nav-dropdown">
+            <li><a class="dropdown-item nav-dropdown-item" href="menu.html#food"><i class="fa-solid fa-utensils me-2"></i>Food Menu</a></li>
+            <li><a class="dropdown-item nav-dropdown-item" href="menu.html#drinks"><i class="fa-solid fa-beer-mug-empty me-2"></i>Drink Menu</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+        <li class="nav-item"><a class="nav-link active-link" href="reservation.html">Reservation</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link nav-link-highlight" href="order-pickup.html">Order Pickup</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="container page-hero-content">
+    <div class="section-eyebrow light"><i class="fa-solid fa-calendar-check"></i> Book a Table</div>
+    <h1 class="page-hero-title">Make a Reservation</h1>
+    <p class="page-hero-sub">Reserve your spot for a special occasion, group dinner, or game night. Walk-ins always welcome.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section-pad">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- FORM -->
+      <div class="col-lg-7 reveal">
+        <div class="res-form-wrap">
+          <h2 class="res-form-title">Book Your Table</h2>
+          <p class="res-form-sub">Fill out the form below and we'll confirm your reservation within 2 hours during business hours.</p>
+          <form id="resForm" onsubmit="handleReservation(event)">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label">First Name *</label>
+                <input type="text" class="form-control rsvp-input" placeholder="Jane" required>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Last Name *</label>
+                <input type="text" class="form-control rsvp-input" placeholder="Smith" required>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Email *</label>
+                <input type="email" class="form-control rsvp-input" placeholder="jane@example.com" required>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Phone</label>
+                <input type="tel" class="form-control rsvp-input" placeholder="604-XXX-XXXX">
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Date *</label>
+                <input type="date" class="form-control rsvp-input" id="resDate" required>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Preferred Time *</label>
+                <select class="form-select rsvp-input" required>
+                  <option value="">Select time</option>
+                  <optgroup label="Lunch (11:30 AM – 2:30 PM)">
+                    <option>11:30 AM</option><option>12:00 PM</option><option>12:30 PM</option>
+                    <option>1:00 PM</option><option>1:30 PM</option><option>2:00 PM</option>
+                  </optgroup>
+                  <optgroup label="Dinner (5:00 PM – close)">
+                    <option>5:00 PM</option><option>5:30 PM</option><option>6:00 PM</option>
+                    <option>6:30 PM</option><option>7:00 PM</option><option>7:30 PM</option>
+                    <option>8:00 PM</option><option>8:30 PM</option><option>9:00 PM</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Party Size *</label>
+                <select class="form-select rsvp-input" required>
+                  <option value="">Select size</option>
+                  <option>1–2 guests</option><option>3–4 guests</option>
+                  <option>5–6 guests</option><option>7–10 guests</option>
+                  <option>11–20 guests</option><option>20+ guests (call us)</option>
+                </select>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label">Occasion</label>
+                <select class="form-select rsvp-input">
+                  <option value="">Select occasion</option>
+                  <option>Birthday</option><option>Anniversary</option>
+                  <option>Business Dinner</option><option>Game Night</option>
+                  <option>Private Event</option><option>Just Dinner</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Special Requests</label>
+                <textarea class="form-control rsvp-input" rows="3" placeholder="Allergies, dietary restrictions, accessibility needs, high chair required, etc."></textarea>
+              </div>
+              <div class="col-12">
+                <div class="res-note"><i class="fa-solid fa-circle-info"></i> For groups of 20+, private events, or same-day bookings please call us at <a href="tel:+16042987158">+1 604-298-7158</a>.</div>
+              </div>
+              <div class="col-12">
+                <a href="https://www.tbdine.com/book/restaurant/admiral?people=2&date=2026-04-07&time=19:00&idApp=300" target="_blank" class="btn btn-accent w-100 btn-lg d-flex align-items-center justify-content-center">
+                  Find a Table
+                </a>
+                <p class="res-disclaimer">By submitting you agree to our cancellation policy. Please give 24 hours notice for cancellations.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="col-lg-5 reveal">
+        <!-- Toast Tab Option -->
+        <div class="res-alt-card">
+          <div class="res-alt-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          <div>
+            <h5>Book via Toast Tab</h5>
+            <p>Prefer to book online directly? Use our Toast Tab reservation portal for real-time availability.</p>
+            <a href="https://tables.toasttab.com/restaurants/ed7b45c6-f962-40f9-bf91-a1d036956011/findTime" target="_blank" class="btn btn-outline-accent w-100">
+              <i class="fa-solid fa-external-link me-2"></i>Open Toast Tab
+            </a>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div class="res-info-card mt-4">
+          <h5 class="res-info-title"><i class="fa-solid fa-clock me-2"></i>Hours of Operation</h5>
+          <div class="hours-table">
+            <div class="hours-row"><span class="hours-label">Lunch</span><span class="hours-days">Daily</span><span class="hours-time">11:30 AM – 2:30 PM</span></div>
+            <div class="hours-row"><span class="hours-label">Dinner</span><span class="hours-days">Mon–Thu &amp; Sun</span><span class="hours-time">2:30 PM – Close</span></div>
+            <div class="hours-row"><span class="hours-label">Dinner</span><span class="hours-days">Fri–Sat</span><span class="hours-time">2:30 PM – 10 PM</span></div>
+            <div class="hours-row highlight"><span class="hours-label">Late Night 🌙</span><span class="hours-days">Fri–Sat</span><span class="hours-time">10 PM – Close</span></div>
+            <div class="hours-row accent"><span class="hours-label">Happy Hour ⭐</span><span class="hours-days">Daily</span><span class="hours-time">3:00 – 6:00 PM</span></div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="res-info-card mt-4">
+          <h5 class="res-info-title"><i class="fa-solid fa-phone me-2"></i>Contact Us</h5>
+          <div class="contact-info">
+            <a href="tel:+16042987158" class="contact-item"><i class="fa-solid fa-phone"></i> +1 604-298-7158</a>
+            <a href="mailto:admiralpub@gmail.com" class="contact-item"><i class="fa-solid fa-envelope"></i> admiralpub@gmail.com</a>
+            <a href="contact.html" class="contact-item"><i class="fa-solid fa-location-dot"></i> 4125 E Hastings St, Burnaby, BC</a>
+          </div>
+        </div>
+
+        <!-- Perks -->
+        <div class="res-perks mt-4">
+          <div class="res-perk-item"><i class="fa-solid fa-users"></i><span>Groups up to 40 guests</span></div>
+          <div class="res-perk-item"><i class="fa-solid fa-hockey-puck"></i><span>Game night seating available</span></div>
+          <div class="res-perk-item"><i class="fa-solid fa-cake-candles"></i><span>Private events &amp; celebrations</span></div>
+          <div class="res-perk-item"><i class="fa-solid fa-wheelchair"></i><span>Accessible seating available</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand"><img src="Image/Logo.svg" alt="Admiral Pub &amp; Grill" class="footer-logo"></div>
+        <p class="footer-tagline">Your neighbourhood pub since day one.</p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/admiralpubgrill" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/admiral_pub_grill/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.google.com/search?q=admiral+Pub+&sca_esv=0e50515861f97790&biw=3430&bih=1325&sxsrf=ANbL-n6sBgkhBV9_eePleBMMmIzNEXRKeQ%3A1775581933295&ei=7TrVacbPEbT00PEPnuCfiQU&ved=0ahUKEwiG-pyTntyTAxU0OjQIHR7wJ1EQ4dUDCBE&uact=5&oq=admiral+Pub+&gs_lp=Egxnd3Mtd2l6LXNlcnAiDGFkbWlyYWwgUHViIDIEECMYJzILEAAYgAQYigUYkQIyERAuGK8BGMcBGJECGIAEGIoFMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABEjtBlDEAViLBXABeAGQAQCYAYQBoAG8A6oBAzIuMrgBA8gBAPgBAZgCBaAC0APCAgoQABhHGNYEGLADwgIGEAAYFhgewgILEAAYgAQYigUYhgPCAgUQABjvBcICCBAAGIAEGKIEwgIJEAAYFhgeGMkDwgILEAAYgAQYigUYkgPCAgsQLhiABBjHARivAZgDAIgGAZAGCJIHAzEuNKAHliCyBwMwLjS4B80DwgcFMC4xLjTIBw-ACAE&sclient=gws-wiz-serp#lrd=0x548670cf294373ff:0x242b014b0460706e,1,,,," target="_blank" rel="noopener" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2"><h6 class="footer-heading">Navigate</h6>
+        <ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="menu.html">Menu</a></li><li><a href="events.html">Events</a></li><li><a href="reservation.html">Reservation</a></li><li><a href="contact.html">Contact</a></li><li><a href="order-pickup.html">Order Pickup</a></li></ul>
+      </div>
+      <div class="col-6 col-lg-2"><h6 class="footer-heading">Hours</h6>
+        <ul class="footer-links small-text"><li>Lunch: 11:30 AM – 2:30 PM</li><li>Dinner: 2:30 PM – Close</li><li>Fri–Sat Late: 10 PM+</li><li class="accent-text">Happy Hr: 3–6 PM Daily</li></ul>
+      </div>
+      <div class="col-lg-4"><h6 class="footer-heading">Find Us</h6>
+        <p class="footer-address"><i class="fa-solid fa-location-dot me-1"></i> 4125 E Hastings St, Burnaby, BC<br><i class="fa-solid fa-phone me-1"></i> +1 604-298-7158</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Admiral Pub &amp; Grill. All rights reserved.</span><span class="design-credit">Design By ❤️ <a href="https://cloudtax.ca" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">CloudTax.ca</a></span></div>
+  </div>
+</footer>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="toastMsg" class="toast align-items-center border-0" role="alert">
+    <div class="d-flex"><div class="toast-body" id="toastBody"></div><button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="shared.js"></script>
+<script>
+  // Set min date to today
+  document.getElementById('resDate').min = new Date().toISOString().split('T')[0];
+
+  function handleReservation(e) {
+    e.preventDefault();
+    e.target.reset();
+    showToast("Reservation request sent! We'll confirm within 2 hours. 🍁", "success");
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* ── RECURRING SECTION ── */
+.recurring-section { padding: 80px 0; }
+
+.recurring-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 28px 24px;
+  text-align: center; height: 100%;
+  transition: all .25s ease;
+}
+.recurring-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: rgba(232,160,32,.25); }
+.rec-icon {
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; margin: 0 auto 1rem;
+}
+.rec-icon.live-music { background: rgba(232,160,32,.15); color: var(--accent); }
+.rec-icon.sports     { background: rgba(45,138,78,.15);  color: #4ab870; }
+.rec-icon.trivia     { background: rgba(124,111,205,.15); color: #a89ce8; }
+.rec-icon.special    { background: rgba(217,79,107,.18);  color: #e8718a; }
+.recurring-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: .3rem; }
+.rec-day { font-size: .78rem; font-weight: 600; color: var(--accent); margin-bottom: .6rem; text-transform: uppercase; letter-spacing: .06em; }
+.recurring-card p { font-size: .85rem; color: var(--text-muted); margin: 0; }
+
+/* ── EVENTS NOTE ── */
+.events-note {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 14px 18px;
+  font-size: .83rem; color: var(--text-muted);
+  display: flex; align-items: flex-start; gap: 10px; margin-top: 2rem;
+}
+.events-note i { color: var(--accent); margin-top: 2px; flex-shrink: 0; }
+.events-note a { color: var(--accent); font-weight: 600; }
+.events-note a:hover { text-decoration: underline; }
+
+/* Copy Phone Button */
+.copy-phone-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  font-size: .83rem;
+  position: relative;
+  transition: all .2s ease;
+}
+.copy-phone-btn:hover {
+  text-decoration: underline;
+}
+.copy-phone-btn::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-alt);
+  color: var(--text);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+.copy-phone-btn:hover::before {
+  content: 'Copy';
+  opacity: 1;
+}
+.copy-phone-btn.copied::before {
+  content: 'Copied!';
+  opacity: 1;
+}
